@@ -1,0 +1,412 @@
+/* ============================================= */
+/* === CSS CHO COMPANY DASHBOARD (BỐ CỤC MỚI) === */
+/* ============================================= */
+
+.company-dashboard-container {
+    padding: 24px;
+    background-color: #f8f9fa;
+}
+
+/* --- Header Lựa chọn địa điểm --- */
+.dashboard-location-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.dashboard-location-selector h1 {
+    font-size: 1.75rem;
+    color: #1f2937;
+}
+
+/* --- Header Thống kê --- */
+.stats-header {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: 
+        "welcome actions"
+        "cards cards";
+    gap: 16px;
+}
+.stats-header-welcome {
+    grid-area: welcome;
+}
+.stats-header-welcome h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+.stats-header-welcome p {
+    margin: 4px 0 0;
+    color: #6b7280;
+}
+
+.stats-header-actions {
+    grid-area: actions;
+}
+.export-button {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+.export-button:hover {
+    background-color: #4338ca;
+}
+
+.stats-header-cards {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* --- Thẻ Thống kê --- */
+.stat-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.stat-card-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+.stat-card-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 4px 0;
+}
+.stat-card-change {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.stat-card-subtitle {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin: 0;
+}
+.change-arrow {
+    margin-right: 4px;
+}
+.stat-card-icon {
+    font-size: 1.5rem;
+    color: #9ca3af;
+}
+
+/* --- BỐ CỤC LƯỚI WIDGET --- */
+.dashboard-grid-new {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 420px;
+    gap: 24px;
+}
+
+.dashboard-grid-simple {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* --- QUY TẮC CHUNG CHO WIDGET CARD --- */
+.widget-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-in-out; 
+}
+
+.widget-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+.dashboard-grid-simple > .widget-card {
+    height: 420px; 
+}
+
+
+.widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343a40;
+    margin: 0;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f1f3f5;
+    flex-shrink: 0;
+}
+
+/* Vùng nội dung có thể cuộn */
+.scrollable-content, 
+.chart-container, 
+.funnel-container-v2, 
+.table-responsive,
+.review-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Tuỳ chỉnh thanh cuộn */
+.scrollable-content::-webkit-scrollbar,
+.chart-container::-webkit-scrollbar,
+.funnel-container-v2::-webkit-scrollbar,
+.table-responsive::-webkit-scrollbar,
+.review-list::-webkit-scrollbar { 
+    width: 6px; 
+}
+.scrollable-content::-webkit-scrollbar-track,
+.chart-container::-webkit-scrollbar-track,
+.funnel-container-v2::-webkit-scrollbar-track,
+.table-responsive::-webkit-scrollbar-track,
+.review-list::-webkit-scrollbar-track { 
+    background: #f9fafb; 
+}
+.scrollable-content::-webkit-scrollbar-thumb,
+.chart-container::-webkit-scrollbar-thumb,
+.funnel-container-v2::-webkit-scrollbar-thumb,
+.table-responsive::-webkit-scrollbar-thumb,
+.review-list::-webkit-scrollbar-thumb { 
+    background-color: #d1d5db; 
+    border-radius: 10px; 
+}
+
+/* Các thẻ thống kê rút gọn */
+.simple-stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.simple-stats-container .widget-card {
+    height: 200px;
+}
+.simple-stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+}
+
+/* Chi tiết các widget */
+.data-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+.data-table thead th { 
+    text-align: left; 
+}
+.data-table td:not(:first-child) { 
+    text-align: center; 
+}
+
+/* === BẮT ĐẦU SỬA ĐỔI === */
+/* Style riêng cho bảng ROI */
+.roi-table {
+    border: 1px solid #e9ecef;
+}
+.roi-table thead th {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    font-weight: 600;
+}
+.roi-table td {
+    padding: 12px 16px;
+    border: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+/* === KẾT THÚC SỬA ĐỔI === */
+
+
+.review-item-with-avatar { display: flex; gap: 12px; padding: 12px 4px; border-bottom: 1px solid #f1f3f5; position: relative; }
+.review-thread {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.review-thread {
+    padding: 12px 4px;
+    border-bottom: 1px solid #f1f3f5;
+}
+.review-thread:last-child {
+    border-bottom: none;
+}
+.review-replies-container {
+    margin-top: 12px;
+    padding-left: 52px;
+    position: relative;
+}
+.review-replies-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -12px;
+    bottom: 0;
+    width: 2px;
+    background-color: #e9ecef;
+}
+.review-item-with-avatar.is-reply {
+    position: relative;
+    padding-top: 12px;
+}
+.review-item-with-avatar.is-reply::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 28px;
+    width: 20px;
+    height: 2px;
+    background-color: #e9ecef;
+}
+.review-item-with-avatar:last-child { border-bottom: none; }
+.review-avatar { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: #e9ecef; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #495057; overflow: hidden; }
+.review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.review-content { flex-grow: 1; }
+.review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.review-header strong { font-size: 0.9rem; color: #343a40; }
+.review-rating { display: flex; align-items: center; gap: 2px; }
+.review-comment { font-size: 0.9rem; color: #495057; margin: 0 0 8px 0; line-height: 1.5; }
+.review-images { margin-top: 8px; display: flex; gap: 8px; }
+.review-image-thumbnail { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+.review-date { font-size: 0.75rem; color: #adb5bd; margin-top: 8px; display: block; }
+.funnel-stage-v2 { display: flex; align-items: center; gap: 16px; }
+.funnel-icon { width: 36px; height: 36px; font-size: 16px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; }
+.funnel-details { flex-grow: 1; }
+.funnel-label { font-size: 0.9rem; color: #495057; display: block; }
+.funnel-value { font-size: 1.1rem; font-weight: 700; color: #212529; }
+.funnel-bar-wrapper { width: 100%; background-color: #e9ecef; border-radius: 4px; height: 8px; overflow: hidden; margin-top: 4px; }
+.funnel-bar { height: 100%; border-radius: 4px; transition: width 0.5s ease-in-out; }
+
+.review-reply-button {
+    margin-top: 8px;
+    background-color: #f1f3f5;
+    border: 1px solid #dee2e6;
+    color: #495057;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.review-reply-button:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.review-reply {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #4f46e5;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+}
+
+.review-reply p {
+    margin: 4px 0 0;
+    white-space: pre-wrap;
+    color: #495057;
+}
+.review-reply strong {
+    color: #343a40;
+}
+
+.reply-form {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    resize: vertical;
+    min-height: 60px;
+    font-size: 0.9rem;
+}
+
+.reply-form__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.reply-form__actions button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.reply-form__actions .btn-send {
+    background-color: #4f46e5;
+    color: white;
+}
+.reply-form__actions .btn-send:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.reply-form__actions .btn-cancel {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stats-header-cards, .dashboard-grid-new, .dashboard-grid-simple {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-grid-new {
+        grid-template-rows: auto;
+    }
+    .dashboard-grid-new > .widget-card,
+    .dashboard-grid-simple > .widget-card {
+        height: auto;
+        min-height: 420px;
+    }
+}

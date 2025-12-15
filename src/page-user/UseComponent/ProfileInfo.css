@@ -1,0 +1,170 @@
+/* src/page-user/UseComponent/ProfileInfo.css */
+
+.page-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+.account-detail-card {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.account-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.account-detail-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.change-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 28px;
+    height: 28px;
+    background-color: #e9ecef;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.account-detail-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.account-detail-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+}
+
+.account-detail-email {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.account-detail-body {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+    .account-detail-body {
+        grid-template-columns: 1fr 1fr;
+    }
+    .info-column:first-child {
+        border-right: 1px solid #e9ecef;
+    }
+}
+
+.info-column {
+    padding: 1.5rem 2rem;
+}
+
+.column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f3f5;
+    font-size: 0.95rem;
+}
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: #6c757d;
+    margin-right: 1rem;
+}
+
+.detail-value {
+    color: #212529;
+    font-weight: 500;
+    text-align: right;
+    word-break: break-word;
+}
+
+.detail-value-placeholder {
+    font-style: italic;
+    color: #adb5bd;
+}
+
+/* Styles for Editing Mode */
+.edit-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.card-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    background-color: #f8f9fa;
+}
+
+.action-button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #5c636a;
+}

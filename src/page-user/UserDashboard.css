@@ -1,0 +1,1276 @@
+/* src/page-user/UserDashboard.css (Merged from UserPage.css and UserDashboard.css) */
+
+.map-body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.map-layout {
+    display: flex;
+    flex-grow: 1;
+    height: auto;
+    overflow: hidden;
+}
+
+.map-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.map-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.map-header .logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+.map-header .search-bar {
+    width: 300px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 0 20px;
+}
+
+.map-header .user-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.map-view {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-view #map {
+    width: 99.4%;
+    height: 98.8%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.map-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.sidebar-btn {
+    background-color: #5c6bc0;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.map-right {
+    width: 490px;
+    background-color: #f9f9f9;
+    padding: 16px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    margin: 0.2%;
+    margin-right: 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestions-header h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.filter-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.filter-row select {
+    flex: 1;
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    min-width: 140px;
+    max-width: 140px;
+}
+
+.refresh-btn {
+    background: #7986cb;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 160px;
+    margin-right: 10px;
+}
+
+/* Old suggestion-card styles from UserPage.css (kept for compatibility) */
+.suggestion-card {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 13px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-height: 160px;
+}
+
+.suggestion-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #eee;
+}
+
+.ad-card {
+    border: 2px solid gold;
+    background: #fffbea;
+    position: relative;
+}
+
+.ad-card::before {
+    content: "Quảng cáo";
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    background: gold;
+    color: #333;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.sidebar-content-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.suggestions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.suggestion-card-v2 {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.suggestion-card-v2:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    background-color: #e2e8f0;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.card-favorite-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-favorite-btn.active {
+    color: #ef4444;
+}
+
+.card-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: #4b5563;
+}
+
+.star-icon {
+    color: #f59e0b;
+}
+
+.review-count {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.card-address {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.detail-btn {
+    padding: 6px 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    min-width: 40px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.detail-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.favorite-btn.active {
+    background-color: #ffebee;
+    color: red;
+}
+
+/* User Menu & Modal Styles */
+.user-section {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icon {
+    cursor: pointer;
+    font-size: 22px;
+    padding: 5px;
+}
+
+.user-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.user-menu .profile-btn,
+.user-menu .logout-btn {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    background: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+}
+
+.user-menu .profile-btn:hover,
+.user-menu .logout-btn:hover {
+    background: #e0e0e0;
+}
+
+.user-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    flex-shrink: 0;
+    margin-bottom: 16px;
+}
+
+.pagination button {
+    margin: 0 4px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination button.active {
+    background-color: #3f51b5;
+    color: white;
+    border-color: #3f51b5;
+}
+
+/* Các styles cho Modal (từ UserPage.css) - có thể không cần nếu modal đã bị xóa */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+}
+
+.modal-card {
+    width: min(1080px, 92vw);
+    max-height: 100vh;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+    overflow: auto;
+    animation: pop .12s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.modal-close {
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+    padding: 14px 16px 6px 16px;
+}
+
+.modal-photo img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.modal-info {
+    font-size: 14px;
+    color: #333;
+    min-height: 560px;
+    max-height: 560px;
+}
+
+.modal-comments {
+    margin-top: 16px;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.comment-list li {
+    margin-bottom: 6px;
+    background: #f9f9f9;
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+.modal-comments textarea {
+    width: 96%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    margin-bottom: 6px;
+}
+
+.modal-comments button {
+    padding: 8px 12px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* --- AD CARD STYLES --- */
+.ad-card-v2 {
+    background-color: #eff6ff;
+    /* blue-50 */
+    border: 1px solid #bfdbfe;
+    /* blue-200 */
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* 12px */
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.ad-card__tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #2563eb;
+    /* blue-600 */
+    color: white;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    /* 12px */
+    font-weight: 600;
+}
+
+.ad-card__main-content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ad-card__image {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.ad-card__details_left {
+    display: flex;
+    flex-direction: column;
+    width: 130px
+}
+
+.ad-card__info h4 {
+    font-size: 1.125rem;
+    /* 18px */
+    font-weight: 700;
+    margin: 0;
+    color: #1f2937;
+    /* gray-800 */
+}
+
+.ad-card__info p {
+    margin: 0;
+    color: #4b5563;
+    /* gray-600 */
+}
+
+.ad-card__slogan {
+    font-style: italic;
+    margin: 0.25rem 0;
+}
+
+.ad-card__details {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    /* 14px */
+    margin-top: 0.25rem;
+}
+
+.ad-card__rating,
+.ad-card__address {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    max-width: 234px;
+}
+
+.ad-card__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.ad-card__btn {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ad-card__btn--primary {
+    background-color: #2563eb;
+    /* blue-600 */
+    color: white;
+}
+
+.ad-card__btn--secondary {
+    background-color: #dbeafe;
+    /* blue-100 */
+    color: #1d4ed8;
+    /* blue-700 */
+}
+
+/* Dán đoạn mã này vào cuối tệp UserDashboard.css */
+
+
+/* --- TABS STYLES --- */
+.tabs-container {
+    display: flex;
+    gap: 0.5rem;
+    /* Giảm khoảng cách giữa các tab */
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.tab-button {
+    padding: 0.75rem 1rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    /* Cỡ chữ 14px */
+    font-weight: 600;
+    color: #6b7280;
+    /* gray-500 */
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-button:hover {
+    background-color: #f3f4f6;
+    /* gray-100 */
+    border-radius: 6px 6px 0 0;
+}
+
+.tab-button.active {
+    color: #3f51b5;
+    /* primary color */
+    border-bottom-color: #3f51b5;
+}
+
+.ai-search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    /* Ngăn form bị co lại */
+}
+
+.ai-search-input {
+    flex-grow: 1;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.ai-search-button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* src/page-user/UserDashboard.css */
+
+/* --- AI RECOMMENDATION CARD STYLES (ĐÃ CẬP NHẬT) --- */
+.ai-suggestion-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    /* Tăng bo góc */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* Tăng đổ bóng */
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.ai-suggestion-card:hover {
+    transform: translateY(-4px);
+    /* Hiệu ứng nổi rõ hơn */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    border-color: #3f51b5;
+}
+
+.ai-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    /* Tăng khoảng cách (từ 1rem) */
+    padding: 1.25rem;
+    /* Tăng padding (từ 1rem) */
+}
+
+.ai-card-image {
+    width: 80px;
+    /* Tăng kích thước ảnh (từ 60px) */
+    height: 80px;
+    /* Tăng kích thước ảnh (từ 60px) */
+    object-fit: cover;
+    border-radius: 12px;
+    /* Tăng bo góc ảnh */
+    flex-shrink: 0;
+}
+
+.ai-card-info {
+    flex-grow: 1;
+}
+
+.ai-card-title {
+    font-size: 1.125rem;
+    /* Tăng cỡ chữ (từ 1rem) */
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    /* Tăng khoảng cách dưới */
+}
+
+.ai-card-address {
+    font-size: 0.95rem;
+    /* Tăng cỡ chữ (từ 0.875rem) */
+    color: #6b7280;
+    margin: 0;
+}
+
+.ai-card-reason {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    /* Tăng padding */
+    border-top: 1px solid #f3f4f6;
+    animation: fadeIn 0.4s ease;
+}
+
+.ai-card-reason p {
+    margin: 1.25rem 0;
+    font-size: 0.95rem;
+    /* Tăng cỡ chữ (từ 0.9rem) */
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.ai-card-reason strong {
+    color: #1f2937;
+}
+
+.ai-card-route-btn {
+    width: 100%;
+    padding: 0.75rem;
+    /* Tăng padding */
+    border: none;
+    border-radius: 10px;
+    /* Tăng bo góc */
+    background-color: #3f51b5;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    /* Tăng cỡ chữ */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ai-card-route-btn:hover {
+    background-color: #303f9f;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Thêm vào cuối tệp UserDashboard.css */
+.user-avatar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.user-avatar-icon:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+    .map-right {
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .map-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .map-left {
+        width: 100%;
+        height: 60vh;
+        min-height: 300px;
+        flex-shrink: 0;
+    }
+
+    .map-right {
+        width: 100%;
+        height: 40vh;
+        margin: 0;
+        overflow-y: auto;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 500;
+        border-radius: 12px 12px 0 0;
+        background-color: white;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2px;
+        flex-shrink: 0;
+        margin-bottom: 2px;
+        font-size: 12px;
+    }
+
+    .pagination button {
+        margin: 0px;
+        padding: 2px 4px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 10px;
+    }
+
+
+    .suggestion-card-v2 {
+        display: flex;
+        flex-direction: row;
+        /* Bố cục ngang */
+        align-items: center;
+        /* Căn giữa các item theo chiều dọc */
+        width: 100%;
+        /* Chiếm toàn bộ chiều rộng có sẵn */
+        height: 90px;
+        /* Chiều cao cố định giống ad-card */
+        padding: 8px;
+        /* Giảm padding */
+        margin: 0;
+        gap: 8px;
+        /* Khoảng cách giữa ảnh và nội dung */
+        overflow: hidden;
+        /* Ẩn nội dung tràn */
+        box-sizing: border-box;
+        /* Đảm bảo padding không làm tăng kích thước */
+    }
+
+    .suggestion-card-v2 .card-image-container {
+        width: 64px;
+        /* Kích thước ảnh nhỏ lại */
+        height: 100%;
+        /* Chiều cao ảnh bằng thẻ */
+        flex-shrink: 0;
+        /* Ngăn ảnh bị co lại */
+        position: relative;
+    }
+
+    .suggestion-card-v2 .card-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+        /* Bo góc ảnh */
+    }
+
+    .suggestion-card-v2 .card-content {
+        flex-grow: 1;
+        /* Phần nội dung chiếm hết không gian còn lại */
+        padding: 0;
+        gap: 2px;
+        /* Giảm khoảng cách giữa các dòng chữ */
+        height: 100%;
+        justify-content: center;
+        /* Căn giữa nội dung trong thẻ */
+        overflow: hidden;
+    }
+
+    .suggestion-card-v2 .card-title {
+        font-size: 11px;
+        /* Giảm cỡ chữ tiêu đề */
+        font-weight: bold;
+        white-space: normal;
+        /* Cho phép xuống dòng */
+        -webkit-line-clamp: 2;
+        /* Giới hạn 2 dòng */
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.3;
+    }
+
+    .suggestion-card-v2 .card-rating {
+        font-size: 10px;
+        /* Giảm cỡ chữ đánh giá */
+        gap: 2px;
+    }
+
+    .suggestion-card-v2 .card-address {
+        font-size: 9px;
+        /* Giảm cỡ chữ địa chỉ */
+        -webkit-line-clamp: 2;
+        /* Giới hạn 2 dòng */
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+    }
+
+    .suggestion-card-v2 .card-badge {
+        top: 4px;
+        left: 4px;
+        font-size: 8px;
+        /* Giảm cỡ chữ badge */
+        padding: 2px 5px;
+    }
+
+    .suggestion-card-v2 {
+        width: 188px;
+        /* Điều chỉnh kích thước nút yêu thích */
+        height: 90px;
+        font-size: 12px;
+    }
+
+    .card-favorite-btn {
+        position: absolute;
+        top: -7px;
+        right: -117px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 21px;
+        font-size: 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ad-card-v2,
+    .ad-card-container {
+        width: 188px;
+        height: 90px;
+        padding: 4px;
+        margin: 0px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: white;
+        gap: 1px
+    }
+
+    .suggestions-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+    }
+
+    /* Chỉ riêng thẻ AI dùng 1 cột */
+    .suggestions-grid .ai-suggestion-card {
+        grid-column: span 2;
+        /* chiếm toàn bộ hàng */
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 90px;
+        padding: 8px;
+        gap: 8px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .ad-card__image {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        margin-right: 6px;
+        align-self: flex-start;
+        margin-top: 15px;
+    }
+
+    .ad-card__info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .ad-card__tag {
+        position: absolute;
+        top: 2px;
+        right: 129px;
+        background-color: #2563eb;
+        color: white;
+        padding: 2px;
+        border-radius: 9999px;
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+
+    .ad-card__info h4 {
+        font-size: 10px;
+        font-weight: bold;
+        margin: 0;
+        line-height: 1.2;
+        max-height: 2.4em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+
+    .ad-card__details {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2px;
+        line-height: 1.2;
+        gap: 0
+    }
+
+    .ad-card__details_left {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .ad-card__rating,
+    .ad-card__review-count,
+    .ad-card__slogan {
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    .ad-card__address {
+        font-size: 9px;
+        color: #666;
+        max-width: 120px;
+        margin-top: 2px;
+    }
+
+    .ad-card__address svg {
+        min-width: 10px;
+        align-self: flex-start;
+        margin-top: 5px;
+
+    }
+
+
+    .suggestions-list {
+        padding-bottom: 20px;
+    }
+
+    .map-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        height: auto;
+    }
+
+    .ad-card__actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 0rem;
+        justify-content: center;
+    }
+
+    .ad-card__btn {
+        flex: 1 1;
+        padding: 5px 8px;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        font-size: 8px;
+        max-width: 65px;
+    }
+
+    .map-header .logo {
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .map-header .user-section {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+    }
+
+    .search-box {
+        display: flex;
+        width: 90%;
+        margin-top: 14px;
+        justify-content: center;
+        left: 14px;
+    }
+
+    .ai-suggestion-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 188px;
+        height: 90px;
+        padding: 8px;
+        margin: 0;
+        gap: 8px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .ai-card-header {
+        padding: 0;
+        gap: 6px;
+        height: 100%;
+    }
+
+    .ai-card-image {
+        width: 64px;
+        height: 100%;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+
+    .ai-card-info {
+        flex: 1;
+        padding: 0;
+        font-size: 11px;
+        overflow: hidden;
+    }
+
+    .ai-card-title {
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 1.3;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+    }
+
+    .ai-card-address {
+        font-size: 9px;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+    }
+
+    .ai-suggestion-card.expanded {
+        flex-direction: column;
+        /* đổi sang dọc khi mở */
+        height: auto;
+        /* cho phép cao theo nội dung */
+        align-items: stretch;
+    }
+
+    .ai-suggestion-card.expanded .ai-card-header {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .ai-suggestion-card.expanded .ai-card-reason {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        border-top: 1px solid #eee;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .ai-card-reason p {
+        margin: 1.25rem 0;
+        font-size: 12px;
+        color: #4b5563;
+        line-height: 1.6;
+    }
+
+    .ai-card-route-btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background-color: #3f51b5;
+        color: white;
+        font-weight: 600;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .filter-row {
+        gap: 10px;
+    }
+
+    .filter-row select,
+    .filter-row .css-b62m3t-container {
+        flex-basis: calc(50% - 10px);
+        flex-grow: 1;
+        min-width: 90px;
+        margin-right: 0;
+    }
+
+    .map-header {
+        padding: 10px 16px;
+    }
+
+    .map-footer {
+        padding: 8px 16px;
+        justify-content: space-around;
+        height: 45px;
+    }
+
+    .map-footer>div,
+    .map-footer>button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-left {
+        height: 40vh;
+        min-height: 220px;
+    }
+
+    .map-right {
+        padding: 8px 8px 0px 8px;
+    }
+
+
+    .card-image-container {
+        width: 100%;
+        height: 180px;
+    }
+}

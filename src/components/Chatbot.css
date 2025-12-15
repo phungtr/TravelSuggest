@@ -1,0 +1,223 @@
+/* src/components/Chatbot.css */
+.visitor-chatbot-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.visitor-chatbot-toggler {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #2563eb; /* var(--blue-600) */
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.visitor-chatbot-toggler:hover {
+    transform: scale(1.1);
+}
+
+.visitor-chatbot-toggler svg {
+    width: 32px;
+    height: 32px;
+}
+
+.visitor-chatbot-window {
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    right: 0;
+    width: 370px; 
+    max-width: 90vw;
+    height: 490px;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+}
+
+.visitor-chatbot-header {
+    background-color: #2563eb;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.visitor-chatbot-header h2 {
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.visitor-chatbot-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.visitor-chatbot-body {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.chat-message {
+    display: flex;
+    max-width: 85%;
+}
+
+/* === THAY ĐỔI CHÍNH NẰM Ở ĐÂY === */
+.chat-message p,
+.markdown-content {
+    margin: 0;
+    padding: 6px 14px; /* Giảm padding cho tin nhắn gọn hơn */
+    border-radius: 18px; /* Giảm bo góc một chút */
+    line-height: 1.4;    /* Giảm khoảng cách dòng */
+    max-width: 100%;
+}
+
+.chat-message.bot {
+    align-self: flex-start;
+    display: flex;
+    align-items: flex-start;
+}
+
+.markdown-content {
+    background-color: #f3f4f6;
+    color: #1f2937;
+    border-bottom-left-radius: 0.25rem;
+}
+/* === KẾT THÚC THAY ĐỔI === */
+
+
+.markdown-content p {
+    margin: 0;
+}
+
+.markdown-content p:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-content ul {
+    padding-left: 20px;
+    margin: 0.5rem 0;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+}
+
+.chat-message.user p {
+    background-color: #2563eb;
+    color: white;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.chat-message.loading {
+    display: flex;
+    align-items: center;
+}
+
+.chat-message.loading span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #9ca3af;
+    margin: 0 2px;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.chat-message.loading span:nth-child(1) { animation-delay: -0.32s; }
+.chat-message.loading span:nth-child(2) { animation-delay: -0.16s; }
+
+
+.visitor-chatbot-input-form {
+    display: flex;
+    padding: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.visitor-chatbot-input-form input {
+    flex-grow: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+.visitor-chatbot-input-form input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.visitor-chatbot-input-form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    margin-left: 0.5rem;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+.visitor-chatbot-input-form button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.suggested-questions {
+    padding: 0.6rem 0.75rem; 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 0.6rem; 
+    border-top: none; 
+    justify-content: flex-end; 
+}
+
+.suggested-questions button {
+    background-color: #f0f2f5; 
+    border: none; 
+    color: #050505; 
+    padding: 8px 12px; 
+    border-radius: 20px; 
+    font-size: 0.9rem; 
+    font-weight: 500; 
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.suggested-questions button:hover {
+    background-color: #e4e6eb; 
+}
+
+.suggested-questions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.chatbot-avatar {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    margin-right: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Animations */
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1.0); } }

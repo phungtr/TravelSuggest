@@ -1,0 +1,270 @@
+/* src/components/map/MapView.css */
+.route-info-box {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 420px;
+    max-width: 90vw;
+    z-index: 900;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* === BẮT ĐẦU THÊM MỚI === */
+.close-route-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    background-color: #f1f3f4;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: bold;
+    color: #5f6368;
+    transition: background-color 0.2s;
+}
+
+.close-route-btn:hover {
+    background-color: #e8eaed;
+}
+
+/* === KẾT THÚC THÊM MỚI === */
+
+
+.loading {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loading::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 3px solid #339af0;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.transport-selector,
+.route-selector,
+.route-summary {
+    margin-bottom: 16px;
+    padding-right: 20px;
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.mode-button {
+    margin: 4px 6px 8px 0;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mode-button.active {
+    background: #34A853;
+    color: #fff;
+    border-color: #34A853;
+    font-weight: 500;
+}
+
+.route-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 6px;
+    padding: 10px 12px;
+    background: #f1f3f4;
+    border: none;
+    border-left: 4px solid #ccc;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.route-button:hover {
+    background: #e0e0e0;
+}
+
+.route-button.active {
+    background: #e8f0fe;
+    color: #1967d2;
+    font-weight: 500;
+}
+
+.route-summary p {
+    font-size: 14px;
+    margin: 6px 0;
+    color: #444;
+}
+
+.route-summary strong {
+    color: #222;
+}
+
+.route-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.route-line .circle {
+    font-size: 16px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.route-line .circle.start {
+    color: #34A853;
+}
+
+.route-line .circle.end {
+    color: #EA4335;
+}
+
+.route-line input {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+    background: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .loading {
+        /* Ghi đè các thuộc tính vị trí của desktop */
+        top: auto;
+        left: 0;
+        transform: none;
+        position: fixed;
+
+        width: 100%;
+
+        /* Căn giữa nội dung và điều chỉnh giao diện */
+        justify-content: center;
+        padding: 20px;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
+
+    .route-info-box {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: none;
+        max-height: 50%;
+        height: 50%;
+        top: auto;
+        transform: none;
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        font-size: 13px;
+        padding-top: 30px;
+    }
+
+    .route-info-box h4 {
+        display: none !important;
+    }
+
+    /* Đặt nút đóng (X) lên cao hơn và nằm trong Sheet */
+    .close-route-btn {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        z-index: 1000;
+        width: 22px;
+        height: 22px;
+    }
+
+    /* === 2. BỐ CỤC NỘI DUNG TRONG SHEET === */
+    .transport-selector,
+    .route-summary {
+        flex-shrink: 0;
+        /* Giữ cho các phần này cố định */
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #eee;
+        /* Đường phân cách */
+    }
+
+    .transport-selector {
+        display: flex;
+    }
+
+    .transport-selector .mode-button {
+        margin: 2px;
+    }
+
+    .mode-button {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        gap: 4px;
+        padding: 6px 11px;
+        min-width: 81px;
+        border: 0px solid #ddd;
+    }
+
+    .route-selector {
+        overflow-y: auto;
+        flex-grow: 1;
+        padding-bottom: 8px;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .leaflet-control-zoom,
+    .leaflet-control-attribution {
+        display: none !important;
+    }
+}

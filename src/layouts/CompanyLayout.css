@@ -1,0 +1,67 @@
+/* src/layouts/CompanyLayout.css */
+
+:root {
+  --sidebar-width: 260px;
+}
+
+.company-layout {
+    display: flex;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+}
+
+.company-header {
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+/* --- BẮT ĐẦU THAY ĐỔI --- */
+.header-right-panel {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Tạo khoảng cách giữa chuông và khối thông tin user */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Giảm khoảng cách giữa chữ "Xin chào" và avatar */
+}
+/* --- KẾT THÚC THAY ĐỔI --- */
+
+.user-greeting {
+    color: #4b5563;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.page-content {
+    flex-grow: 1;
+    padding: 2.5rem;
+}

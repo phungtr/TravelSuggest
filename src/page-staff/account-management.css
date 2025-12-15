@@ -1,0 +1,660 @@
+/* ================================== */
+/* 1. LAYOUT CHUNG           */
+/* ================================== */
+
+.staff-layout {
+    display: flex;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-header {
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.header-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-main {
+    flex-grow: 1;
+    padding: 1.5rem 0;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    padding-left: 0.5rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-greeting {
+    color: #4b5563;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ================================== */
+/* 2. STYLE RIÊNG CHO TRANG NÀY    */
+/* ================================== */
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Khoảng cách giữa các card */
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.card-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+/* Table Styling */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    min-width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header {
+    background-color: #f9fafb;
+}
+
+.table-th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table-th.text-center {
+    text-align: center;
+}
+
+.table-body {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+.table-row:hover {
+    background-color: #f9fafb;
+}
+
+.table-td {
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    vertical-align: middle;
+}
+
+.table-td .font-medium {
+    font-weight: 500;
+    color: #111827;
+}
+
+.table-td .text-gray-500 {
+    color: #6b7280;
+}
+
+.table-td .text-gray-600 {
+    color: #4b5563;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 0.125rem 0.5rem;
+    display: inline-flex;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+}
+
+.status-pending { background-color: #fef3c7; color: #92400e; }
+.status-active { background-color: #d1fae5; color: #065f46; }
+.status-inactive { background-color: #fee2e2; color: #991b1b; }
+.status-banned { background-color: #e5e7eb; color: #374151; }
+.status-default { background-color: #f3f4f6; color: #374151; }
+
+/* Action Buttons */
+.action-buttons-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 150ms ease-in-out;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+
+.approve-button { color: #047857; background-color: #d1fae5; }
+.approve-button:hover { background-color: #a7f3d0; }
+
+.reject-button { color: #b91c1c; background-color: #fee2e2; }
+.reject-button:hover { background-color: #fecaca; }
+
+.ban-button { color: #b91c1c; background-color: #fee2e2; }
+.ban-button:hover { background-color: #fecaca; }
+
+.unban-button { color: #047857; background-color: #d1fae5; }
+.unban-button:hover { background-color: #a7f3d0; }
+
+.button-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.25rem;
+}
+
+/* Loading, Error, Empty States */
+.loading-state, .error-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.error-state { color: #ef4444; }
+.empty-state { padding: 3rem 1.5rem; text-align: center; color: #6b7280; }
+/* === THÊM ĐOẠN CSS MỚI NÀY VÀO CUỐI FILE === */
+
+/* Helper class để các ngôi sao xếp hàng ngang */
+.flex {
+    display: flex;
+}
+
+/* Styling cho các ngôi sao đánh giá */
+.rating-star {
+    width: 1.25rem;  /* tương đương w-5 */
+    height: 1.25rem; /* tương đương h-5 */
+    color: #d1d5db;  /* màu xám mặc định (giống text-gray-300) */
+    display: inline-block;
+}
+
+.rating-star-filled {
+    color: #f59e0b;  /* màu vàng (giống text-yellow-400) */
+}
+/* ================================== */
+/* 3. STYLE CHO MODAL VÀ FORM         */
+/* ================================== */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Phải cao hơn z-index của sidebar */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #9ca3af;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    box-sizing: border-box; /* Quan trọng */
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+}
+/* Thêm vào cuối file account-management.css */
+
+/* ================================== */
+/* 4. NOTIFICATION STYLES             */
+/* ================================== */
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280; /* text-gray-500 */
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-button:hover {
+    background-color: #f3f4f6; /* bg-gray-100 */
+}
+
+.notification-button .button-icon {
+    width: 1.5rem; /* w-6 */
+    height: 1.5rem; /* h-6 */
+}
+
+.notification-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: 360px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    z-index: 1002;
+}
+
+.notification-header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.notification-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.notification-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-message {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.notification-time {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+.notification-empty {
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+/* Thêm vào cuối file CSS chung của bạn */
+
+/* ================================== */
+/* 5. STYLE TRANG CHI TIẾT      */
+/* ================================== */
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    background-color: #f9fafb;
+}
+
+.detail-item strong {
+    display: block;
+    color: #111827;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.text-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+.text-link:hover {
+    text-decoration: underline;
+}
+/* Dán đoạn code này vào file CSS chung của bạn, thay thế các class cũ */
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    background-color: #f9fafb;
+}
+
+/* THAY ĐỔI: Chuyển sang bố cục 1 cột */
+.detail-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Khoảng cách giữa các mục thông tin */
+}
+
+/* THAY ĐỔI: Định dạng cho từng mục thông tin */
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-key {
+    font-size: 0.875rem; /* 14px */
+    color: #6b7280;     /* text-gray-500 */
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    font-size: 0.875rem;
+    color: #1f2937;     /* text-gray-800 */
+    font-weight: 600;    /* In đậm giá trị */
+}
+
+.detail-value-placeholder {
+    font-style: italic;
+    color: #9ca3af;     /* text-gray-400 */
+    font-weight: 400;
+}
+
+/* Cập nhật Link để chứa icon */
+.text-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex; /* Xếp icon và chữ trên cùng một hàng */
+    align-items: center;
+    gap: 0.5rem; /* Khoảng cách giữa icon và chữ */
+}
+.text-link:hover {
+    text-decoration: underline;
+}
+
+/* Lớp bao ngoài cùng để căn giữa và tạo nền xám */
+.page-container {
+    padding: 2rem;
+    background-color: #f8f9fa; /* Màu nền xám nhạt */
+}
+
+/* Card chính màu trắng - ĐỔI TÊN */
+.account-detail-card {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    max-width: 960px;
+    margin: 0 auto; /* Tự động căn giữa card */
+}
+
+/* Header ngang với avatar bên trái, thông tin bên phải - ĐỔI TÊN */
+.account-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.account-detail-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.account-detail-info {
+    text-align: left;
+}
+
+.account-detail-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.verified-icon {
+    color: #0d6efd;
+    font-size: 1.2rem;
+}
+
+.account-detail-email {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Body 2 cột sử dụng Grid - ĐỔI TÊN */
+.account-detail-body {
+    display: grid;
+    /* Mặc định là 1 cột trên màn hình nhỏ */
+    grid-template-columns: 1fr;
+}
+/* Khi màn hình đủ lớn (>= 768px), chuyển sang 2 cột */
+@media (min-width: 768px) {
+    .account-detail-body {
+        grid-template-columns: 1fr 1fr;
+    }
+    /* Thêm đường kẻ dọc giữa 2 cột */
+    .info-column:first-child {
+        border-right: 1px solid #e9ecef;
+    }
+}
+
+.info-column {
+    padding: 1.5rem 2rem;
+}
+
+.column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* Hàng thông tin chi tiết (key-value) */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f3f5;
+    font-size: 0.95rem;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    color: #6c757d;
+    margin-right: 1rem;
+}
+
+.detail-value {
+    color: #212529;
+    font-weight: 500;
+    text-align: right;
+    word-break: break-word; /* Tránh vỡ layout nếu text quá dài */
+}
+
+.detail-value-placeholder {
+    font-style: italic;
+    color: #adb5bd;
+}
+
+/* Huy hiệu trạng thái */
+.status-badge.status-pending {
+    background-color: #fff0c2;
+    color: #856404;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Link */
+.text-link {
+    color: #0d6efd;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+}
+.text-link:hover {
+    text-decoration: underline;
+}

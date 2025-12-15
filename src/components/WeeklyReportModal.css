@@ -1,0 +1,99 @@
+.report-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  backdrop-filter: blur(4px);
+  animation: fadeInReport 0.3s ease;
+}
+
+.report-modal-container {
+  background-color: #f8fafc;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  height: 90vh;
+  max-height: 700px;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUpReport 0.4s ease-out;
+}
+
+.report-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.report-modal-header-icon {
+  font-size: 1.5rem;
+  color: #4f46e5;
+}
+
+.report-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.report-modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.report-modal-close-btn:hover {
+  color: #334155;
+}
+
+.report-modal-content {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.report-modal-summary {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #334155;
+  overflow-y: auto;
+}
+
+.report-modal-chart {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .report-modal-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes fadeInReport { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUpReport { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }

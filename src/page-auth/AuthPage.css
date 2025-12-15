@@ -1,0 +1,101 @@
+/* --- CSS GỘP CHUNG --- */
+
+/* Landing Page Styles */
+.landing-page { overflow-x: hidden; }
+.hero {
+  /* SỬA ĐƯỜNG DẪN TƯƠNG ĐỐI TỪ CSS TỚI THƯ MỤC ASSETS */
+  background: url('../assets/images/banner-map.jpg') center center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.hero-content { position: relative; z-index: 1; color: white; }
+.hero-content h1 { font-size: 4rem; margin-bottom: 10px; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; }
+.hero-buttons { display: flex; gap: 15px; justify-content: center; }
+.hero-buttons button { padding: 12px 25px; font-size: 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.3s ease; }
+.hero-buttons .register { background-color: #ff9800; color: white; }
+.hero-buttons button:not(.register) { background-color: white; color: #333; }
+
+/* Login & Register Form Styles */
+.auth-wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* SỬA ĐƯỜNG DẪN TƯƠNG ĐỐI */
+  background: url('../assets/images/Background.webp') no-repeat center center fixed;
+  background-size: cover;
+}
+.auth-container {
+  width: 40vw;
+  min-width: 400px;
+  max-width: 500px;
+  padding: 40px;
+  box-shadow: -6px 0 30px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-container h2 { font-size: 30px; font-weight: 700; margin-bottom: 20px; text-align: center; }
+.auth-form { display: flex; flex-direction: column; gap: 10px; }
+.auth-form input { padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; outline: none; }
+.auth-form label { margin-top: 15px; font-weight: 600; font-size: 16px; }
+.auth-btn { background: linear-gradient(to right, #00c853, #00e676); color: white; font-size: 16px; padding: 12px; border: none; border-radius: 30px; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+.auth-btn:hover { background: linear-gradient(to right, #00b248, #00d265); }
+.auth-link { margin-top: 15px; font-size: 14px; text-align: center; }
+.auth-link a { color: #1a73e8; text-decoration: none; cursor: pointer; }
+
+/* Register Choice Styles */
+.register-choice-wrapper {
+  min-height: 100vh;
+  /* SỬA ĐƯỜNG DẪN TƯƠNG ĐỐI */
+  background: url('../assets/images/Background.webp') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.dark-overlay { position: absolute; inset: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; }
+.register-choice-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 60px;
+  border-radius: 12px;
+  width: 1000px;
+  max-width: 90%;
+  text-align: center;
+}
+.register-choice-container h2 { font-size: 40px; margin-bottom: 40px; }
+.register-options { display: flex; justify-content: space-around; margin-top: 30px; gap: 20px; flex-wrap: wrap;}
+.register-card { cursor: pointer; transition: transform 0.2s; text-align: center; }
+.register-card:hover { transform: scale(1.05); }
+.register-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+.register-card p { margin-top: 12px; font-weight: 600; font-size: 20px; }
+
+/* Footer Styles */
+.auth-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 16px 8px;
+    width: 100%;
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+}
+.auth-footer a { color: #6cf; text-decoration: none; }

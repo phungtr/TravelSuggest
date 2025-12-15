@@ -1,0 +1,146 @@
+/* src/page-admin/CommunicationPage.css */
+
+.communication-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.communication-form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.btn.btn-primary {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.file-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.file-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.file-icon.pdf { color: #ef4444; }
+.file-icon.word { color: #3b82f6; }
+.file-icon.folder { color: #f59e0b; }
+
+.action-button.icon-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.breadcrumb-item {
+    color: #6b7280;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item:hover {
+    color: #1d4ed8;
+}
+
+.breadcrumb-item:last-child {
+    color: #1f2937;
+    font-weight: 600;
+    cursor: default;
+}
+
+.breadcrumb-separator {
+    color: #9ca3af;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-button.icon-button {
+    border: 1px solid #d1d5db;
+    background-color: #fff;
+    color: #4b5563;
+}
+.action-button.icon-button:hover {
+    background-color: #f9fafb;
+}
+
+.action-button.icon-button.reject-button {
+    border-color: #fca5a5;
+    background-color: #fff;
+    color: #ef4444;
+}
+.action-button.icon-button.reject-button:hover {
+    background-color: #fee2e2;
+}
+
+.document-link:hover {
+    text-decoration: underline;
+}
+
+/* --- STYLE CHO DRAG & DROP --- */
+.table-row.drop-target-highlight {
+    background-color: #e0f2fe; /* Màu xanh da trời nhạt */
+    outline: 2px dashed #3b82f6; /* Viền đứt nét */
+    outline-offset: -2px;
+}

@@ -1,0 +1,699 @@
+/* src/page-staff/Dashboard.css */
+
+/* --- BỐ CỤC CHUNG CHO TRANG DASHBOARD --- */
+.dashboard-page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- LƯỚI THỐNG KÊ (HÀNG TRÊN) --- */
+.stat-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+
+.stat-count {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    color: #1f2937;
+}
+
+.stat-icon-wrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon-wrapper svg {
+    font-size: 1.5rem;
+}
+
+.icon-blue { background-color: #dbeafe; color: #2563eb; }
+.icon-green { background-color: #d1fae5; color: #059669; }
+.icon-yellow { background-color: #fef3c7; color: #d97706; }
+.icon-red { background-color: #fee2e2; color: #dc2626; }
+
+
+/* --- LƯỚI NỘI DUNG (HÀNG DƯỚI) --- */
+.dashboard-content-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 1.5rem;
+}
+
+.widget-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.widget-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+}
+
+
+/* --- WIDGET THÔNG BÁO --- */
+.announcement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+    /* === THÊM THANH TRƯỢT === */
+    max-height: 350px; /* Giới hạn chiều cao */
+    overflow-y: auto;  /* Hiện thanh trượt khi cần */
+    padding-right: 10px; /* Thêm khoảng trống cho thanh trượt */
+}
+
+/* Tùy chỉnh thanh trượt cho đẹp hơn (tùy chọn) */
+.announcement-list::-webkit-scrollbar {
+  width: 6px;
+}
+.announcement-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.announcement-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+.announcement-list::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+
+.announcement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.announcement-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.announcement-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #1f2937;
+}
+
+.announcement-title {
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.25rem 0;
+}
+
+.announcement-description {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.announcement-time {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+
+/* --- WIDGET TÀI LIỆU --- */
+.document-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.document-table th {
+    text-align: left;
+    color: #6b7280;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.document-table td {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.document-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.document-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.document-name-cell svg {
+    font-size: 1.25rem;
+}
+
+.document-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.document-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+/* CSS Bổ sung cho CompanyDashboard V2 */
+.company-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dashboard-header-v2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dashboard-header-v2 h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.dashboard-header-v2 p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+/* --- BẮT ĐẦU THÊM MỚI CSS --- */
+.location-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.location-selector label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.location-selector select {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    min-width: 250px;
+}
+
+.funnel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.funnel-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.funnel-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.funnel-stage-name {
+    font-weight: 600;
+    color: #374151;
+}
+
+.funnel-stage-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.funnel-bar-wrapper {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.funnel-bar {
+    height: 24px;
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
+}
+
+.funnel-conversion-rate {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* --- KẾT THÚC THÊM MỚI CSS --- */
+
+
+.export-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.export-button:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.stats-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card-v2 {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e5e7eb;
+}
+
+.stat-icon-v2 {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+.stat-icon-v2.icon-blue { background-color: #3b82f6; }
+.stat-icon-v2.icon-green { background-color: #10b981; }
+.stat-icon-v2.icon-yellow { background-color: #f59e0b; }
+.stat-icon-v2.icon-purple { background-color: #8b5cf6; }
+
+
+.stat-title-v2 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin: 0;
+}
+
+.stat-value-v2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0.25rem 0;
+}
+
+.stat-change-v2, .stat-subtitle-v2 {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.text-green-500 { color: #22c55e; }
+.text-red-500 { color: #ef4444; }
+
+.charts-grid-v2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+.chart-main {
+    grid-column: span 2;
+}
+
+.chart-side {
+    grid-column: span 1;
+}
+
+@media (max-width: 1024px) {
+    .charts-grid-v2 {
+        grid-template-columns: 1fr;
+    }
+    .chart-main, .chart-side {
+        grid-column: span 1;
+    }
+}
+
+.chart-container {
+    width: 100%;
+    height: 250px;
+}
+
+.chart-label {
+    font-size: 10px;
+    fill: #6b7280;
+}
+
+.chart-grid-line {
+    stroke: #e5e7eb;
+    stroke-dasharray: 2, 2;
+}
+
+.chart-bar {
+    transition: all 0.3s ease;
+}
+
+.chart-bar:hover {
+    opacity: 0.8;
+}
+/* src/page-staff/Dashboard.css */
+
+/* --- BỐ CỤC CHUNG --- */
+.company-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dashboard-header-v2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.dashboard-header-v2 h1 { font-size: 1.875rem; font-weight: 700; color: #111827; margin: 0; }
+.dashboard-header-v2 p { font-size: 1rem; color: #6b7280; margin-top: 0.25rem; }
+
+.export-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.export-button:hover { background-color: #f9fafb; border-color: #9ca3af; }
+
+/* --- THẺ THỐNG KÊ --- */
+.stats-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card-v2 {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e5e7eb;
+}
+
+.stat-icon-v2 {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+.stat-icon-v2 svg { width: 1.5rem; height: 1.5rem; }
+.stat-icon-v2.icon-blue { background-color: #3b82f6; }
+.stat-icon-v2.icon-green { background-color: #10b981; }
+.stat-icon-v2.icon-yellow { background-color: #f59e0b; }
+.stat-icon-v2.icon-purple { background-color: #8b5cf6; }
+
+.stat-title-v2 { font-size: 0.875rem; font-weight: 500; color: #6b7280; margin: 0; }
+.stat-value-v2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin: 0.25rem 0; }
+.stat-change-v2, .stat-subtitle-v2 { font-size: 0.75rem; color: #6b7280; margin: 0; }
+.text-green-500 { color: #22c55e; }
+.text-red-500 { color: #ef4444; }
+
+
+/* --- BIỂU ĐỒ VÀ BỐ CỤC --- */
+.dashboard-charts-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.dashboard-chart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+@media (max-width: 1024px) {
+    .dashboard-chart-row {
+        grid-template-columns: 1fr;
+    }
+}
+.widget-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+}
+.widget-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+}
+.chart-container { width: 100%; height: 250px; }
+.chart-label { font-size: 10px; fill: #6b7280; }
+.chart-grid-line { stroke: #e5e7eb; stroke-dasharray: 2, 2; }
+.chart-bar:hover { opacity: 0.8; }
+
+/* --- ĐÁNH GIÁ TIÊU BIỂU --- */
+.reviews-container-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 250px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db #f9fafb;
+}
+.reviews-container-v2::-webkit-scrollbar { width: 6px; }
+.reviews-container-v2::-webkit-scrollbar-track { background: #f9fafb; }
+.reviews-container-v2::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 10px; }
+
+.review-item-v2 {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.review-content-v2 { flex-grow: 1; }
+.review-header-v2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+.review-author-v2 { font-weight: 600; color: #1f2937; }
+.review-time-v2 { font-size: 0.75rem; color: #9ca3af; }
+.star-rating-v2 {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 0.5rem;
+}
+.review-comment-v2 {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #4b5563;
+    margin: 0;
+}
+/* --- CSS CHO LƯỚI BIỂU ĐỒ CỦA ADMIN --- */
+.admin-charts-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Biểu đồ đường rộng hơn */
+    gap: 1.5rem;
+}
+
+/* Responsive cho màn hình nhỏ hơn */
+@media (max-width: 1200px) {
+    .admin-charts-grid {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    }
+}
+/* Thêm vào cuối file src/page-staff/Dashboard.css */
+
+/* Header của Widget */
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Nút bấm chung */
+.action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    transition: all 150ms ease-in-out;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    color: #374151;
+}
+.action-button:hover {
+    background-color: #f9fafb;
+}
+.action-button.approve-button {
+    color: #047857;
+    background-color: #d1fae5;
+    border-color: transparent;
+}
+.action-button.approve-button:hover {
+    background-color: #a7f3d0;
+}
+
+
+/* --- CSS CHO MODAL XEM TRƯỚC TÀI LIỆU --- */
+.media-modal-overlay {
+    /* Đã có sẵn nếu bạn dùng từ các trang khác */
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+}
+.media-modal-close {
+    /* Đã có sẵn */
+    position: absolute; top: 20px; right: 30px; font-size: 40px;
+    color: white; background: none; border: none; cursor: pointer;
+}
+
+.document-preview-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90vw;
+    height: 90vh;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.document-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+.document-preview-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    color: #1f2937;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.document-preview-content iframe {
+    flex-grow: 1;
+    border: none;
+}
+/* Thêm vào cuối file src/page-staff/Dashboard.css */
+
+/* --- STYLE CHO ICON BUTTON --- */
+.action-button.icon-button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 1rem; /* Kích thước icon */
+    border-radius: 50%; /* Bo tròn nút */
+}

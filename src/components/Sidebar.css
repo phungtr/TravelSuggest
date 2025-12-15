@@ -1,0 +1,129 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    width: var(--sidebar-width); 
+    background-color: #1f2937;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1010; 
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: #60a5fa;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s, color 0.2s;
+    gap: 0.75rem;
+    position: relative; /* Thêm để định vị thông báo */
+}
+
+.sidebar-link:hover {
+    background-color: #374151;
+    color: white;
+}
+
+.sidebar-link.active {
+    background-color: #2563eb;
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar-icon {
+    width: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.badge {
+    margin-left: auto;
+    background-color: #fca5a5;
+    color: #b91c1c;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 9999px;
+}
+
+.sidebar-link.active .badge {
+    background-color: white;
+    color: #2563eb;
+}
+
+.sidebar-footer {
+    border-top: 1px solid #374151;
+    padding-top: 1rem;
+}
+
+/* --- CSS CHO THÔNG BÁO MỚI (CHÚ Ý) --- */
+.notification-indicator-wrapper {
+    position: absolute;
+    right: 1rem; /* Căn lề phải */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+}
+
+.notification-ping {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ef4444;
+    border-radius: 50%;
+    opacity: 0.75;
+    /* Hiệu ứng ping */
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.notification-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #ef4444;
+    border-radius: 50%;
+}
+
+/* Định nghĩa animation */
+@keyframes ping {
+    75%, 100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}

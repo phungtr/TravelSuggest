@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/index.css */
+
+/* Import font từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Thiết lập biến CSS và các style cơ bản */
+:root {
+  --sidebar-width: 280px;
+  --header-height: 80px; 
+  --primary-color: #2563eb;
+  --primary-color-hover: #1d4ed8;
+  --background-color: #f3f4f6;
+  --text-color: #111827;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+/* Reset và áp dụng font chữ cho toàn bộ trang */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+/* Đảm bảo các thành phần form cũng kế thừa font chữ */
+body, button, input, textarea, select {
+    font-family: inherit; /* Quan trọng: Kế thừa font từ body */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

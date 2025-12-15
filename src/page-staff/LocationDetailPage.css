@@ -1,0 +1,383 @@
+/* src/page-staff/LocationDetailPage.css */
+
+.location-detail-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Header --- */
+.detail-header {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-header__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    color: white;
+}
+
+.detail-header__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.detail-header__address {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-header__actions {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.action-button-v2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.action-button-v2:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.action-button-v2.approve {
+    background-color: #22c55e; /* green-500 */
+    color: white;
+}
+.action-button-v2.approve:hover {
+     background-color: #16a34a; /* green-600 */
+}
+
+.action-button-v2.reject {
+    background-color: #ef4444; /* red-500 */
+    color: white;
+}
+.action-button-v2.reject:hover {
+    background-color: #dc2626; /* red-600 */
+}
+
+
+/* --- Main Content --- */
+.detail-main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .detail-main-content {
+        grid-template-columns: 2.5fr 1fr; /* 70% 30% */
+    }
+}
+
+.detail-content-left, .detail-content-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- Info Card --- */
+.info-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.info-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin: 0;
+}
+
+.info-card__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.location-description {
+    line-height: 1.6;
+    color: #4b5563; /* gray-600 */
+    white-space: pre-wrap;
+}
+
+/* --- Info Row (Right column) --- */
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.info-row__icon {
+    color: #3b82f6; /* blue-500 */
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.info-row__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-row__label {
+    font-size: 0.875rem;
+    color: #6b7280; /* gray-500 */
+}
+
+.info-row__value {
+    font-weight: 600;
+    color: #1f2937; /* gray-800 */
+}
+
+.info-row__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: #2563eb; /* blue-600 */
+}
+.info-row__link:hover {
+    text-decoration: underline;
+}
+
+/* --- Image Gallery --- */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    width: 100%;
+    padding-top: 100%; /* Creates a square aspect ratio */
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- BỔ SUNG CHO GALLERY (VIDEO) --- */
+
+/* **[SỬA LỖI TẠI ĐÂY]** Chuyển `position` thành `absolute` để video và wrapper của nó lấp đầy
+  khung `.gallery-item` đã được tạo sẵn theo tỉ lệ 1:1.
+*/
+.gallery-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Style cho thumbnail video */
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo video lấp đầy khung */
+}
+
+/* Icon play nằm đè lên video */
+.play-icon-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none; /* Cho phép click xuyên qua icon */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.gallery-item:hover .play-icon-overlay {
+    transform: translate(-50%, -50%) scale(1.1);
+    color: white;
+}
+
+
+/* --- MODAL CHUNG CHO ẢNH & VIDEO --- */
+.media-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.3s ease;
+}
+
+.media-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Wrapper để ngăn click vào content đóng modal */
+.media-modal-content-wrapper {
+    position: relative;
+}
+
+/* Style chung cho nội dung trong modal (ảnh và video) */
+.media-modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* ... (GIỮ NGUYÊN TOÀN BỘ CSS CŨ CỦA BẠN) ... */
+
+/* --- BẮT ĐẦU THÊM CSS MỚI CHO PHẦN ĐÁNH GIÁ --- */
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.review-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.review-item:not(:last-child) {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6; /* gray-100 */
+}
+
+.review-item__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dbeafe; /* blue-100 */
+    color: #1e40af; /* blue-800 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.review-item__content {
+    flex-grow: 1;
+}
+
+.review-item__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.review-item__author {
+    font-weight: 600;
+    color: #1f2937; /* gray-800 */
+}
+
+.review-item__timestamp {
+    font-size: 0.875rem;
+    color: #9ca3af; /* gray-400 */
+}
+
+.review-item__rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    color: #f59e0b; /* yellow-500 */
+}
+
+.review-item__comment {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b5563; /* gray-600 */
+    margin: 0;
+}
+
+.review-item__images {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+}
+
+.review-item__image-thumbnail {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-item__image-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+/* --- KẾT THÚC THÊM CSS MỚI --- */

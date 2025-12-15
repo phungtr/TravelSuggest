@@ -1,0 +1,655 @@
+/* src/page-user/UseComponent/LocationDetailPageUser.css */
+
+/* --- CÀI ĐẶT CHUNG --- */
+.location-detail-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background-color: #f9fafb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.loading-state,
+.error-state,
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.25rem;
+    color: #6b7280;
+}
+
+/* --- NÚT QUAY LẠI --- */
+.back-btn {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* --- HEADER BANNER --- */
+.detail-header {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.detail-header__overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 70%);
+    padding: 2rem;
+}
+
+.detail-header__title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.detail-header__address {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.9;
+}
+
+/* --- BỐ CỤC NỘI DUNG CHÍNH --- */
+.detail-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .detail-content {
+        grid-template-columns: 2.5fr 1fr;
+        /* 70% 30% */
+    }
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- THẺ THÔNG TIN (InfoCard) --- */
+.info-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.info-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    margin: 0;
+}
+
+.info-card__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.description {
+    line-height: 1.7;
+    color: #4b5563;
+    white-space: pre-wrap;
+}
+
+/* --- HÀNG THÔNG TIN (InfoRow) --- */
+.info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.info-row__icon {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.info-row__label {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.info-row__value {
+    font-weight: 600;
+    color: #1f2937;
+    word-break: break-word;
+}
+
+.info-row__value a {
+    color: #2563eb;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.info-row__value a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- CÁC NÚT HÀNH ĐỘNG --- */
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.favorite-btn,
+.go-btn {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.favorite-btn {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.favorite-btn.active,
+.favorite-btn:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+.go-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.go-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.go-btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* --- THƯ VIỆN ẢNH & VIDEO --- */
+.media-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.media-thumbnail,
+.video-thumbnail-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.video-thumbnail-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-thumbnail-container .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+
+/* --- PHẦN ĐÁNH GIÁ & BÌNH LUẬN --- */
+.average-rating-display {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.average-rating-display h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.star-filled {
+    color: #f59e0b;
+}
+
+.star-empty {
+    color: #e5e7eb;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.review-form h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.rating-input .star-filled,
+.rating-input .star-empty {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.review-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.submit-review-btn {
+    align-self: flex-end;
+    background-color: #16a34a;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-review-btn:hover {
+    background-color: #15803d;
+}
+
+
+/* *** BẮT ĐẦU SỬA LỖI GIAO DIỆN *** */
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+    /* Bỏ padding cũ */
+    background-color: #fff;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    /* Thêm gap để tạo khoảng cách dọc */
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1.5rem;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+    /* Bỏ gạch chân cho item cuối */
+}
+
+.review-item__header {
+    display: flex;
+    /* Bật flexbox */
+    justify-content: space-between;
+    /* Đẩy 2 phần tử con ra 2 bên */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    width: 100%;
+    margin-bottom: 0;
+    /* Reset margin */
+}
+
+.review-author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.user-icon {
+    font-size: 1.5rem;
+    color: #6b7280;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #111827;
+}
+
+.review-date {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-left: 0;
+    /* Reset margin */
+}
+
+.review-item__rating {
+    margin-bottom: 0;
+}
+
+.review-item__comment {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #374151;
+    margin-bottom: 0;
+}
+
+.review-item__images {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.review-image {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* *** KẾT THÚC SỬA LỖI GIAO DIỆN *** */
+
+
+.review-response {
+    background-color: #f9fafb;
+    border-left: 3px solid #4f46e5;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: #374151;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+.image-previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.preview-image {
+    width: 100px;
+    /* Thu nhỏ ảnh preview */
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- MODAL XEM ẢNH/VIDEO --- */
+.media-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.media-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.media-modal-content-wrapper {
+    position: relative;
+}
+
+.media-modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Dán đoạn mã này vào cuối tệp LocationDetailPageUser.css */
+
+.review-author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+    /* Thêm một đường viền mảnh cho đẹp hơn */
+}
+
+/* Đoạn CSS này đã có, đảm bảo nó tồn tại để căn chỉnh đúng */
+.review-author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* --- RESPONSIVE CHO THIẾT BỊ DI ĐỘNG --- */
+@media (max-width: 768px) {
+
+    /* -- Cài đặt chung -- */
+    .location-detail-page {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    /* -- Header Banner -- */
+    .detail-header {
+        height: 250px;
+        /* Giảm chiều cao banner cho vừa màn hình */
+        margin-bottom: 1rem;
+        border-radius: 0;
+        /* Bỏ bo góc trên mobile */
+    }
+
+    .detail-header__overlay {
+        padding: 1.5rem 1rem;
+    }
+
+    .detail-header__title {
+        font-size: 1.75rem;
+        /* Giảm kích thước tiêu đề */
+    }
+
+    .detail-header__address {
+        font-size: 0.95rem;
+        /* Giảm kích thước địa chỉ */
+    }
+
+    /* -- Bố cục nội dung chính -- */
+    .detail-content {
+        padding: 0 1rem 1rem 1rem;
+        /* Thêm padding cho nội dung */
+        gap: 1.5rem;
+    }
+
+    /* -- Thẻ thông tin (InfoCard) -- */
+    .info-card__title {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .info-card__content {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .info-row {
+        font-size: 0.9rem;
+    }
+
+    /* -- Nút hành động -- */
+    .user-actions {
+        /* Chuyển 2 nút thành 1 cột */
+        margin-top: 0.5rem;
+    }
+
+    .favorite-btn,
+    .go-btn {
+        padding: 0.8rem;
+        max-width: 172px;
+    }
+
+    /* -- Phần đánh giá & bình luận -- */
+    .average-rating-display h3 {
+        font-size: 1.5rem;
+    }
+
+    .review-form {
+        padding: 1rem;
+    }
+
+    .info-card .leaflet-container {
+        /* Dùng !important để ghi đè lên style inline trong JSX */
+        height: 250px !important;
+    }
+
+    /* --- 2. Làm gọn khu vực viết đánh giá --- */
+    .review-form {
+        gap: 0.75rem;
+        /* Giảm khoảng cách dọc giữa các phần tử */
+    }
+    .image-upload-label  {
+        border: none;
+        background-color: #f1f3f4;
+        padding: 0;
+        gap: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+        transition: background-color 0.2s;
+        position: absolute;
+        top: -51px;
+        right: 4px;
+    }
+
+    .image-upload-label:hover {
+        background-color: #e9ecef;
+    }
+
+    /* Ẩn icon ảnh và chữ "Thêm ảnh" mặc định */
+    .image-upload-label .upload-icon,
+    .image-upload-label {
+        font-size: 0;
+        /* Kỹ thuật ẩn text node */
+    }
+
+    .image-upload-container {
+        margin-bottom: 0rem;
+        position: relative;
+
+    }
+
+    /* Dùng pseudo-element ::before để tạo dấu cộng '+' */
+    .image-upload-label::before {
+        content: '+';
+        font-size: 20px;
+        color: #495057;
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    .review-item__header {
+        flex-direction: column;
+        /* Xếp avatar và ngày tháng theo cột */
+        align-items: flex-start;
+        /* Căn lề trái */
+        gap: 0.5rem;
+    }
+
+    .review-image {
+        width: 90px;
+        height: 70px;
+    }
+
+    .media-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+}
