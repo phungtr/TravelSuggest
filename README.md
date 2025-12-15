@@ -32,12 +32,6 @@ npm start
 
 Ứng dụng chạy tại:
 http://localhost:3000  
-
-Nếu có backend riêng:
-cd backend  
-npm install  
-npm run start:dev  
-
 ## Environment Variables
 
 Tạo file .env và cấu hình:
