@@ -16,7 +16,7 @@ TravelSuggest là ứng dụng web gợi ý địa điểm du lịch và dịch 
 
 Frontend: React, TypeScript, Vite  
 Backend: Node.js, NestJS  
-Database: MongoDB  
+Database: MongoDB, MySQL
 APIs & Services: OpenStreetMap, Google Cloud, Gemini AI, VNPAY API  
 Tools: Git, GitHub, Visual Studio Code  
 
