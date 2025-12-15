@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# TravelSuggest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TravelSuggest là ứng dụng web gợi ý địa điểm du lịch và dịch vụ tiện ích dựa trên vị trí GPS của người dùng. Ứng dụng hỗ trợ tìm kiếm nhà hàng, khách sạn và điểm tham quan, hiển thị trực quan trên bản đồ, giúp người dùng dễ dàng lựa chọn địa điểm phù hợp khi du lịch.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Gợi ý địa điểm du lịch dựa trên vị trí GPS  
+- Hiển thị bản đồ và các địa điểm bằng OpenStreetMap  
+- Xem chi tiết địa điểm: mô tả, hình ảnh, đánh giá  
+- Đánh dấu và quản lý địa điểm yêu thích  
+- Gợi ý thông minh bằng Gemini AI  
+- Tích hợp API thời tiết và thanh toán VNPAY  
+- Giao diện responsive, tương thích nhiều thiết bị  
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Frontend: React, TypeScript, Vite  
+Backend: Node.js, NestJS  
+Database: MongoDB  
+APIs & Services: OpenStreetMap, Google Cloud, Gemini AI, VNPAY API  
+Tools: Git, GitHub, Visual Studio Code  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to Run
 
-### `npm test`
+Clone repository:
+git clone https://github.com/phungtr/TravelSuggest.git  
+cd TravelSuggest  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Cài đặt và chạy frontend:
+npm install  
+npm start  
 
-### `npm run build`
+Ứng dụng chạy tại:
+http://localhost:3000  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Nếu có backend riêng:
+cd backend  
+npm install  
+npm run start:dev  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Environment Variables
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Tạo file .env và cấu hình:
+MONGO_URI  
+GOOGLE_CLOUD_KEY  
+GEMINI_API_KEY  
+VNPAY_KEY  
 
-### `npm run eject`
+## Role & Responsibilities
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Thiết kế và phát triển giao diện người dùng  
+- Tích hợp API GPS, bản đồ và AI  
+- Xử lý dữ liệu và hiển thị thông tin trực quan  
+- Tối ưu trải nghiệm người dùng và hiệu năng  
+- Quản lý mã nguồn và làm việc nhóm bằng Git  
